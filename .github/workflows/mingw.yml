@@ -1,29 +1,30 @@
 name: MinGW
 
 on: 
-  push:
-    paths-ignore:
-      - '.gitignore'
-      - '.gitattributes'
-      - 'res/**'
-      - '**.cmd'
-      - '**.md'
-      - '**.rc'
-      - '**.sh'
-      - '**.txt'
-      - '**.xml'
-  pull_request:
-    branches: [master]
-    paths-ignore:
-      - '.gitignore'
-      - '.gitattributes'
-      - 'res/**'
-      - '**.cmd'
-      - '**.md'
-      - '**.rc'
-      - '**.sh'
-      - '**.txt'
-      - '**.xml'
+#  push:
+#    paths-ignore:
+#      - '.gitignore'
+#      - '.gitattributes'
+#      - 'res/**'
+#      - '**.cmd'
+#      - '**.md'
+#      - '**.rc'
+#      - '**.sh'
+#      - '**.txt'
+#      - '**.xml'
+#  pull_request:
+#    branches: [master]
+#    paths-ignore:
+#      - '.gitignore'
+#      - '.gitattributes'
+#      - 'res/**'
+#      - '**.cmd'
+#      - '**.md'
+#      - '**.rc'
+#      - '**.sh'
+#      - '**.txt'
+#      - '**.xml'
+  workflow_dispatch:
 
 jobs:
   MinGW-Build:
@@ -91,7 +92,7 @@ jobs:
         curl --request POST --url https://www.virustotal.com/api/v3/monitor/items --header 'x-apikey: ${{ secrets.VIRUSTOTAL_API_KEY }}' --form path='/${{ matrix.exe }}' --form file=@./${{ matrix.exe }}
 
     - name: Upload artifacts
-      if: ${{ github.event_name == 'push' }}
+      # if: ${{ github.event_name == 'push' }}
       uses: actions/upload-artifact@v3
       with:
         name: MinGW
