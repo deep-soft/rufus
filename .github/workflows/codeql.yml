@@ -1,30 +1,31 @@
 name: "CodeQL"
 
 on:
-  push:
-    branches: [master]
-    paths-ignore:
-      - '.gitignore'
-      - '.gitattributes'
-      - 'res/**'
-      - '**.cmd'
-      - '**.md'
-      - '**.rc'
-      - '**.sh'
-      - '**.txt'
-      - '**.xml'
-  pull_request:
-    branches: [master]
-    paths-ignore:
-      - '.gitignore'
-      - '.gitattributes'
-      - 'res/**'
-      - '**.cmd'
-      - '**.md'
-      - '**.rc'
-      - '**.sh'
-      - '**.txt'
-      - '**.xml'
+#  push:
+#    branches: [master]
+#    paths-ignore:
+#      - '.gitignore'
+#      - '.gitattributes'
+#      - 'res/**'
+#      - '**.cmd'
+#      - '**.md'
+#      - '**.rc'
+#      - '**.sh'
+#      - '**.txt'
+#      - '**.xml'
+#  pull_request:
+#    branches: [master]
+#    paths-ignore:
+#      - '.gitignore'
+#      - '.gitattributes'
+#      - 'res/**'
+#      - '**.cmd'
+#      - '**.md'
+#      - '**.rc'
+#      - '**.sh'
+#      - '**.txt'
+#      - '**.xml'
+  workflow_dispatch:
 
 env:
   SOLUTION_FILE_PATH: ./rufus.sln
