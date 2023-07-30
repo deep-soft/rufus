@@ -26,6 +26,9 @@ on:
 #      - '**.xml'
   workflow_dispatch:
 
+env:
+  PRG_NAME: rufus
+
 jobs:
   MinGW-Build:
     runs-on: windows-latest
@@ -95,5 +98,6 @@ jobs:
       # if: ${{ github.event_name == 'push' }}
       uses: actions/upload-artifact@v3
       with:
-        name: MinGW
+        # name: MinGW
+        name: ${{ env.PRG_NAME}}-${{ matrix.sys}}
         path: ./*.exe
